@@ -1,0 +1,26 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Wordcount</th>
+            <th>Snippet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let page of pages; let i = index">    
+            <tr>
+                <td>{{i + 1}}</td>
+                <td>
+                    <a
+                        [href]="prepareWikiLink(page.pageid)"
+                        target="_blank"
+                    >{{page.title}}
+                    </a>
+                </td>
+                <td>{{page.wordcount}}</td>
+                <td [innerHTML]="page.snippet"></td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
